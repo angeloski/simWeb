@@ -1,0 +1,33 @@
+{% load static from staticfiles %}
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SysMo{% endblock %}</title>
+    {% bootstrap_css %}
+    <link href="{% static "custom.css" %}" rel="stylesheet">
+  </head>
+
+<body>
+  {% block navbar %}{% endblock navbar %}
+  
+  {% block jumbotron %}{% endblock jumbotron %}
+
+  {% block content %}{% endblock content %}
+
+  {% block footer %}
+  <div id="page-footer">
+	  <div class="container">
+	     <footer>
+		    <hr />
+		    <p> &copy; SysMo {% now "Y" %} </p>
+	     </footer>
+    </div>
+  </div>
+  {% endblock footer %}
+
+  {% bootstrap_javascript jquery=True %}
+</body>
+</html>
