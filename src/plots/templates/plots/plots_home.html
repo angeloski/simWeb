@@ -1,0 +1,76 @@
+{% extends "platform.html" %}
+{% load bootstrap3 %}
+{% load static from staticfiles %}
+
+{% block navtab-dataVisualization %} active {% endblock %}
+
+{% block tab-content-dataVisualization %} tab-pane fade in active {% endblock %}
+
+{% block plots %}
+<div class="col-md-4">
+    <plot height=250 aspect=2 x="[[seq(0,4*PI,501)]]" legend-switches>
+      <lines y="[[sin(x)]]" stroke="red" label="sin"></lines>
+      <lines y="[[cos(x)]]" stroke="blue" label="cos"></lines>
+      <lines y="[[2*sin(3*x)+cos(5*x+PI/4)]]" stroke-width=2
+             stroke="green" label="mixed"></lines>
+    </plot>
+
+<plot height=250 aspect=2 x="[[dat.day]]">
+  <lines y="[[dat.temp]]" stroke="red"></lines>
+  <lines y2="[[dat.prec]]" stroke="blue"></lines>
+</plot>
+
+<plot-data name="dat" format="csv" cols="day,temp,prec" src="{% static 'plots/data/vic2012.csv' %}">
+</plot-data>
+
+<plot height=250 aspect=2 layout-share="2" marker-size="30" stroke="none" fill="rgba(0,0,255,0.4)"> 
+	<points x="[[vic2012.tmp]]" y="[[vic2012.prc]]"></points> 
+</plot> 
+
+<plot-data name="vic2012" src="{% static 'plots/data/vic2012d.csv' %}" format="csv" cols="date,tmp,prc"> 
+	<metadata name="date" format="date"></metadata> 
+	<metadata name="tmp" label="Temperature" units="°C"></metadata> 
+	<metadata name="prc" label="Rainfall" units="mm/day"></metadata> 
+</plot-data>
+<div class="col-md-8">
+<div class="form-inline">
+  <label>Mean</label>
+  <input type="range" min=0 max=10 step=0.01 ng-model="mu" ng-init="mu=5">
+  <label>&nbsp;&nbsp;Standard deviation</label>
+  <input type="range" min=0.01 max=10 step=0.01 ng-model="sigma" ng-init="sigma=1">
+</div>
+</div>
+<br>
+
+<plot height=250 aspect=2 stroke-width=2 stroke="red">
+  <lines x="[[seq(0,10,200)]]" y="[[normal(x,mu,sigma)]]"></lines>
+</plot>
+
+<br><br><br>
+
+<form class="form-inline">
+  <label>Stroke colour:</label>
+  <select ng-model="col" ng-init="col='red'">
+    <option value="red">Red</option>
+    <option value="orange">Orange</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+    <option value="magenta">Magenta</option>
+  </select>
+  &nbsp;&nbsp;&nbsp;
+  <label>Stroke width:</label>
+  <select ng-model="swidth" ng-init="swidth=1">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="4">4</option>
+    <option value="8">8</option>
+  </select>
+</form>
+
+<plot height=250 aspect=2 x="[[seq(0,2*PI,101)]]">
+  <lines y="[[0*x]]"></lines>
+  <lines y="[[sin(x)]]" stroke="[[col]]" stroke-width="[[swidth]]"></lines>
+</plot>
+
+</div>
+{% endblock plots %}
