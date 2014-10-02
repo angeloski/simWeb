@@ -30,17 +30,7 @@
   {% endblock footer %}
 
   {% bootstrap_javascript jquery=True %}
-  <script src="{% static 'js/jquery.csv.js' %}"></script>
-  <script src="{% static 'js/escodegen.browser.js' %}"></script>
-  <script src="{% static 'js/estraverse.js' %}"></script>
-  <script src="{% static 'js/d3.v2.js' %}"></script>
-  <script src="{% static 'js/angular.js' %}"></script>
-  <script src="{% static 'js/radian.min.js' %}"></script>
-  <script>
-  angular.module('myApp', ['radian']).
-    controller('MyCtrl', [function()
-  {
-  }]);
-  </script>
+  
+  {% block scripts %}{% endblock scripts %}
 </body>
 </html>
