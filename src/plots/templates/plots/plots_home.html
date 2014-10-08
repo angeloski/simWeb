@@ -48,8 +48,9 @@
 					</div>
 	      </div>
 	    </div>
-	    	<plot height=250 aspect=2 stroke-width=2 stroke="red">
-  	  		<lines x="[[seq(0,10,200)]]" y="[[normal(x,mu,sigma)]]"></lines>
+	    	<plot height=250 aspect=2 stroke-width=2>
+  	  		<lines x="[[seq(0,10,200)]]" y="[[normal(x,mu,sigma)]]" stroke="red"></lines>
+  	  		<lines x="[[seq(0,10,200)]]" y="[[lognormal(x,mu,sigma)]]" stroke="blue"></lines>
 				</plot>
 	  </div>
 	</div>
