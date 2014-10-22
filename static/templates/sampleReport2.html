@@ -1,0 +1,203 @@
+{% extends "base_navbar.html" %}
+{% load static from staticfiles %}
+{% load bootstrap3 %}
+
+{% block navbar-report1 %}active{% endblock%}
+
+{% block jumbotron %}
+  <div class="jumbotron">
+    <div class="container">
+        <h1>Market analysis report: <br>Time tracking application</h1>
+        <p>This report presents secondary market research data for a time tracking application.</p>
+        {% if not user.is_authenticated %}
+        <p><a class="btn btn-lg btn-success" href="{% url 'registration_register' %}">Register</a> &nbsp;
+        <a class="btn btn-lg btn-primary" href="{% url 'django.contrib.auth.views.login' %}">Sign in</a></p>
+        {% endif %}
+    </div> <!-- /.container -->
+	</div> <!-- /.jumbotron -->
+{% endblock jumbotron %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>1. Keywords</h2>
+        <p>Source: <a href="http://www.google.com/trends/" target="_blank">Google Trends</a>.</p>
+        <p>Top 3 search phrases: 
+            <li>Time tracking software</li>
+            <li>Free time tracking</li>
+            <li>Time billing software</li><br>
+            Other phrases to consider: free time tracker, online time tracker, time tracker app, time tracking software, employee time tracking.</p>
+            <h4>Worldwide interest in the top 5 phrases over time:</h4>
+        <p></p>
+        <script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=time+tracking+software,+free+time+tracking,+project+time+tracking,+time+billing+software,+employee+time+tracking&geo=US&cmpt=q&content=1&cid=TIMESERIES_GRAPH_AVERAGES_CHART&export=5&w=900&h=380"></script>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>2. Geographical distribution of interest</h2>
+        <p>Source: <a href="http://www.google.com/trends/" target="_blank">Google Trends</a>.</p>
+        <p>Top 3 countries: 
+            <li>United States</li>
+            <li>Canada</li>
+            <li>India</li><br>
+            Other countries with significant interest: India, United Kingdom, Ireland, New Zeland, Philippines, Singapore.</p>
+            <p>Top cities in the US: Chicago, San Jose, San Francisco, New York, Phoenix, San Diego, Austin and Seattle.</p>
+          <div class="col-md-6">
+            <h4>Worldwide interest by countries:</h4>
+          <script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=time+tracking+software,+free+time+tracking,+project+time+tracking,+free+time+tracking,+employee+time+tracking&cmpt=q&content=1&cid=GEO_MAP_0_0&export=5&w=500&h=330"></script>
+        </div>
+        <div class="col-md-6">
+          <h4>United States interest by cities:</h4>
+        <script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=time+tracking+software,+free+time+tracking,+project+time+tracking,+free+time+tracking,+employee+time+tracking&cmpt=q&geo=US&content=1&cid=GEO_MAP_0_2&export=5&w=500&h=330"></script>
+        </div>
+      </div>
+      <br><br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>3. Search volume in the last 12 months</h2>
+        <p>Source: <a href="https://adwords.google.com/ko/KeywordPlanner/Home?__c=1868626823&__u=1694291663&authuser=0&__o=cues" target="_blank">Google AdWords Tools</a>.</p>
+          <h4>Average monthly searches for 'time tracking software':</h4>
+            <li>October 2012 - September 2013: <b>2 900</b></li>
+            <li>October 2013 - September 2014: <b>3 600</b></li>
+            <b>Year over year search increase of 24%.</b>
+            <br><br>
+          <img src="{% static 'data/searchVolume.png' %}" alt="Search volume trends" style="width:761px;height:189px">
+          <br><br>
+          <h4>Searcher's demographics:</h4>
+          <img src="{% static 'data/searchers.png' %}" alt="Breakdown by device" style="width:500px;height:100px">
+          <br><br>
+          <h4>Average monthly search breakdown</h4>
+          <h5>By state:</h5>
+          <img src="{% static 'data/byState.png' %}" alt="Breakdown by state" style="width:550px;height:190px">
+          <br>
+          <h5>By city:</h5>
+          <img src="{% static 'data/byCity.png' %}" alt="Breakdown by city" style="width:620px;height:190px">
+          <br>
+          <h5>By device:</h5>
+          <img src="{% static 'data/byDevice.png' %}" alt="Breakdown by device" style="width:580px;height:190px">
+          <br>
+          <br>
+
+          <h4>Consumer archetype: Male, aged 25-34, living in New York or San Francisco, searching on a computer.</h4>
+      </div>
+      <br><br>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <h2>4. Market size.</h2>
+        <h4>Customer Segments 
+        <button type="button" id="myPopover" class="btn btn-default btn-xs" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">
+          <span class="glyphicon glyphicon-question-sign">
+        </button></h4>
+            <p>There are three basic customer segments:</p>
+            <li>Freelancers</li>
+            <li>Teleworkers</li>
+            <li>Employers</li><br>
+      </div>
+      <br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>4. Competitors</h2>
+        <p>Top 3 countries: 
+            <li>United States</li>
+            <li>Canada</li>
+            <li>Australia</li><br>
+            Other countries with significant interest: India, United Kingdom, Ireland, New Zeland, Philippines, Singapore.</p>
+            <p>The marketing campaign at the initial phase should be focused on the United states.</p>
+      </div>
+      <br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>4. Potential partners</h2> 
+            <li>Freelancers</li>
+            <li>Teleworkers</li>
+            <li>Employers</li><br>
+            Other countries with significant interest: India, United Kingdom, Ireland, New Zeland, Philippines, Singapore.</p>
+            <p>The marketing campaign at the initial phase should be focused on the United states.</p>
+      </div>
+      <br><br>
+    </div>
+        
+    <div class="row">
+      <div class="col-md-12">
+        <h2>4. Potential revenue streams</h2> 
+            <li>Freelancers</li>
+            <li>Teleworkers</li>
+            <li>Employers</li><br>
+            Other countries with significant interest: India, United Kingdom, Ireland, New Zeland, Philippines, Singapore.</p>
+            <p>The marketing campaign at the initial phase should be focused on the United states.</p>
+      </div>
+      <br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>4. Pricing</h2> 
+            <li>Freelancers</li>
+            <li>Teleworkers</li>
+            <li>Employers</li><br>
+            Other countries with significant interest: India, United Kingdom, Ireland, New Zeland, Philippines, Singapore.</p>
+            <p>The marketing campaign at the initial phase should be focused on the United states.</p>
+      </div>
+      <br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>4. Findings</h2> 
+            <li>Freelancers</li>
+            <li>Teleworkers</li>
+            <li>Employers</li><br>
+            Other countries with significant interest: India, United Kingdom, Ireland, New Zeland, Philippines, Singapore.</p>
+            <p>The marketing campaign at the initial phase should be focused on the United states.</p>
+      </div>
+      <br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>4. Limitations</h2> 
+            <li>Freelancers</li>
+            <li>Teleworkers</li>
+            <li>Employers</li><br>
+            Other countries with significant interest: India, United Kingdom, Ireland, New Zeland, Philippines, Singapore.</p>
+            <p>The marketing campaign at the initial phase should be focused on the United states.</p>
+      </div>
+      <br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>4. Conclusions and Recommendations</h2> 
+            <li>Freelancers</li>
+            <li>Teleworkers</li>
+            <li>Employers</li><br>
+            Other countries with significant interest: India, United Kingdom, Ireland, New Zeland, Philippines, Singapore.</p>
+            <p>The marketing campaign at the initial phase should be focused on the United states.</p>
+      </div>
+      <br><br>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>4. Appendices</h2> 
+            <li>Freelancers</li>
+            <li>Teleworkers</li>
+            <li>Employers</li><br>
+            Other countries with significant interest: India, United Kingdom, Ireland, New Zeland, Philippines, Singapore.</p>
+            <p>The marketing campaign at the initial phase should be focused on the United states.</p>
+      </div>
+      <br><br>
+    </div>
+  </div>
+{% endblock content %}
+

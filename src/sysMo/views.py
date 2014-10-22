@@ -9,6 +9,21 @@ def home(request):
         return render(request, 'home.html')
     return login(request, template_name='home.html')
 
+def sampleReport1(request):
+    if (request.user.is_authenticated()):
+        return render(request, 'sampleReport1.html')
+    return login(request, template_name='sampleReport1.html')
+
+def sampleReport2(request):
+    if (request.user.is_authenticated()):
+        return render(request, 'sampleReport2.html')
+    return login(request, template_name='sampleReport2.html')  
+
+def sampleReport3(request):
+    if (request.user.is_authenticated()):
+        return render(request, 'sampleReport3.html')
+    return login(request, template_name='sampleReport3.html')        
+
 def aboutus(request):
     if (request.user.is_authenticated()):
         return render(request, 'aboutus.html')

@@ -14,15 +14,14 @@
 	    </div>
 	    <div class="navbar-collapse collapse">
 	      <ul class="nav navbar-nav">
-			<li class="dropdown">
+			<li class="dropdown {%block navbar-sampleReports%}{% endblock%}">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sample Reports <b class="caret"></b></a>
 		        <ul class="dropdown-menu">
-		          <li><a href="#">Time tracking app</a></li>
-		          <li><a href="#">Website builder</a></li>
-		          <li><a href="#">Market analysis reports</a></li>
+		          <li><a href="{% url 'sysMo.views.sampleReport1' %}">Time tracking app</a></li>
+		          <li><a href="{% url 'sysMo.views.sampleReport2' %}">Website builder</a></li>
+		          <li><a href="{% url 'sysMo.views.sampleReport3' %}">Market analysis reports</a></li>
 		        </ul>
 		    </li>
-	        <li class="{% block navbar-platform %}{% endblock%}"><a href="{% url 'sysMo.views.platform' %}" target="_blank">Platform</a></li>
 	        <li class="{%block navbar-about%}{% endblock%}"><a href="{%url 'sysMo.views.aboutus'%}">Meet the team</a></li>
 	        <li class="{%block navbar-contact%}{%endblock%}"><a href="{%url 'sysMo.views.contact'%}">Contact</a></li>
 	      </ul>
@@ -31,6 +30,7 @@
 		    <li id="nav-username"><a href="{% url 'sysMo.views.profile' %}">
 		      <span class="glyphicon glyphicon-user"></span>  {{ user.get_username }} &nbsp; </a>
 		    </li>
+		    <li><a href="{% url 'django.contrib.auth.views.logout' %}">My Reports</a></li>
 		    <li><a href="{% url 'django.contrib.auth.views.logout' %}">Sign out</a></li>
 		  </ul>
 		  {% else %}
