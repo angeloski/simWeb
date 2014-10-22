@@ -6,7 +6,7 @@
 {% block jumbotron %}
   <div class="jumbotron">
     <div class="container">
-        <h1>Welcome to SysMo!</h1>
+        <h1>Welcome to MK Reports!</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         {% if not user.is_authenticated %}
         <p><a class="btn btn-lg btn-success" href="{% url 'registration_register' %}">Register</a> &nbsp;
@@ -20,6 +20,9 @@
   <div class="container">
     <!-- Example row of columns -->
     <div class="row">
+      <button type="button" id="myPopover" class="btn btn-default btn-xs" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="">
+          <span class="glyphicon glyphicon-question-sign"></span>
+        </button>
       <div class="col-md-4">
         <h2>Heading</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
